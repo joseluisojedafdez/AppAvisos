@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "141879134338",
+    "project_id": "app-7af39",
+    "storage_bucket": "app-7af39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141879134338:android:efc2bb02600829615a4c9b",
+        "android_client_info": {
+          "package_name": "com.i4bchile.avisos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141879134338-7ldi7vohviu4qj93ee63opblt1o27uuq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMT1a1L9GVIOvDZYmhHRwgHsF15OtkIko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141879134338-7ldi7vohviu4qj93ee63opblt1o27uuq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
