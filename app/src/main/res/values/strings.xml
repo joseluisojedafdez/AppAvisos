@@ -3,4 +3,8 @@
     <string name="trabajando_en_amor">TRABAJANDO EN AMOR</string>
     <string name="categorias">CATEGORIAS</string>
     <string name="categoria_aqui">CATEGORIA AQUI</string>
+    <string name="category_title_here">CATEGORY TITLE HERE</string>
+    <string name="publisher_name_here">PUBLISHER NAME HERE</string>
+    <string name="title_of_ad_here">TITLE OF AD HERE</string>
+    <string name="pyme_here">PYME HERE</string>
 </resources>

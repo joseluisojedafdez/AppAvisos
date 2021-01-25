@@ -2,6 +2,7 @@ package com.i4bchile.avisos.model
 
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
@@ -54,6 +55,12 @@ class Repository {
         val ad = Ad(namePublisher, pyme, category, details, active, imageURL)
 
         return ad
+
+    }
+
+    fun listAds(value: String): LiveData<List<Ad>> {
+
+        return adsDatabase.adsDao().getAdsbyCategory(value,true)
 
     }
 

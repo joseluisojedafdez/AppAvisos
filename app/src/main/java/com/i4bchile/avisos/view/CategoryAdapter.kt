@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.i4bchile.avisos.databinding.ItemListCategoryBinding
 
-class CategoryAdapter: RecyclerView.Adapter<CategoryVH>() {
+class CategoryAdapter (val listener:OnItemClickListener): RecyclerView.Adapter<CategoryVH>() {
 
     val categoryList=mutableListOf<String>()
 
@@ -17,6 +17,7 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryVH>() {
 
     override fun onBindViewHolder(holder: CategoryVH, position: Int) {
         val category=categoryList[position]
+        holder.itemView.setOnClickListener{listener.onClick(category)}
         holder.bind(category)
     }
 

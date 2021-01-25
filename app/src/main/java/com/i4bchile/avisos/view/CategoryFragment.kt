@@ -8,12 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.i4bchile.avisos.R
 import com.i4bchile.avisos.databinding.FragmentCategoryBinding
 import com.i4bchile.avisos.viewmodel.AvisosVM
 
-class CategoryFragment: Fragment() {
+class CategoryFragment: Fragment(), OnItemClickListener {
     private lateinit var binding:FragmentCategoryBinding
-    val adapter=CategoryAdapter()
+    val adapter=CategoryAdapter(this)
     val viewModel: AvisosVM by viewModels()
 
     override fun onCreateView(
@@ -33,6 +34,15 @@ class CategoryFragment: Fragment() {
 
         return binding.root
     }
+
+    override fun onClick(value: String) {
+        activity?.supportFragmentManager?.
+        beginTransaction()?.
+        replace(R.id.rv_fragment_container,FragmentListAds(value))?.
+        addToBackStack("volver")?.
+        commit()
+
+            }
 
 
 }

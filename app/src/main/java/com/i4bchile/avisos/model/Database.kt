@@ -19,8 +19,8 @@ interface AdsDao{
     @Query("SELECT * FROM ad WHERE namePublisher=:publisher AND active=:pActive" )
     fun getAd(publisher:String, pActive:Boolean):LiveData<Ad>
 
-    @Query("SELECT * FROM ad WHERE category=:category")
-    fun getAdsbyCategory(category:String):LiveData<List<Ad>>
+    @Query("SELECT * FROM ad WHERE category=:pCategory AND active=:pActive")
+    fun getAdsbyCategory(pCategory:String, pActive:Boolean):LiveData<List<Ad>>
 
 }
 
