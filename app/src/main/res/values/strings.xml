@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Avisos</string>
+    <string name="trabajando_en_amor">TRABAJANDO EN AMOR</string>
+    <string name="categorias">CATEGORIAS</string>
+    <string name="categoria_aqui">CATEGORIA AQUI</string>
 </resources>
