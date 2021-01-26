@@ -16,11 +16,11 @@ interface AdsDao{
     @Query("SELECT category FROM ad GROUP BY category")
     fun getCategories():LiveData<List<String>>
 
-    @Query("SELECT * FROM ad WHERE namePublisher=:publisher AND active=:pActive" )
-    fun getAd(publisher:String, pActive:Boolean):LiveData<Ad>
+    @Query("SELECT * FROM ad WHERE namePublisher=:publisher AND active=1" )
+    fun getAd(publisher:String):LiveData<Ad>
 
-    @Query("SELECT * FROM ad WHERE category=:pCategory AND active=:pActive")
-    fun getAdsbyCategory(pCategory:String, pActive:Boolean):LiveData<List<Ad>>
+    @Query("SELECT * FROM ad WHERE category=:pCategory AND active=1")
+    fun getAdsbyCategory(pCategory:String):LiveData<List<Ad>>
 
 }
 

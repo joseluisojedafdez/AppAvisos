@@ -60,7 +60,7 @@ class Repository {
 
     fun listAds(value: String): LiveData<List<Ad>> {
 
-        return adsDatabase.adsDao().getAdsbyCategory(value,true)
+        return adsDatabase.adsDao().getAdsbyCategory(value)
 
     }
 

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.i4bchile.avisos.databinding.FragmentListaAdsBinding
 import com.i4bchile.avisos.viewmodel.AvisosVM
 
@@ -22,7 +22,7 @@ class FragmentListAds(val value:String): Fragment(),OnItemClickListener {
         binding= FragmentListaAdsBinding.inflate(layoutInflater)
         binding.tvCategoriesListAdd.text=value
         binding.rvListaAd.adapter=adapter
-        binding.rvListaAd.layoutManager= LinearLayoutManager(this.context)
+        binding.rvListaAd.layoutManager= GridLayoutManager(this.context,1)
         viewModel.listAds(value).observe(viewLifecycleOwner,{
             adapter.updateAds(it)
         })
