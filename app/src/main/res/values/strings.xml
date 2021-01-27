@@ -7,4 +7,33 @@
     <string name="publisher_name_here">PUBLISHER NAME HERE</string>
     <string name="title_of_ad_here">TITLE OF AD HERE</string>
     <string name="pyme_here">PYME HERE</string>
+    <string name="default_web_client_id2" translatable="false">141879134338-7ldi7vohviu4qj93ee63opblt1o27uuq.apps.googleusercontent.com</string>
+    <string name="title_activity_log_in">LogInActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="bienvenido">BIENVENIDO</string>
+    <string name="nombre_usuario_aqui">Nombre Usuario Aqui</string>
+    <string name="para_poder_ver_el_detalle_debes_identificarte">PARA PODER VER EL DETALLE, DEBES IDENTIFICARTE</string>
+    <string name="user_picture">User Picture</string>
+    <string name="siguiente">SIGUIENTE</string>
+    <string name="publisher_name_detail_here">PUBLISHER NAME DETAIL HERE</string>
+    <string name="pyme_detail_here">PYME DETAIL HERE</string>
+    <string name="qu_hago">¿Qué hago?</string>
+    <string name="titulo_del_aviso_aqui">TITULO DEL AVISO AQUI</string>
+    <string name="ciudad_aqui">CIUDAD AQUI</string>
+    <string name="evaluaciones">Evaluaciones</string>
+    <string name="_00">00</string>
+    <string name="telefono_aqui">TELEFONO AQUI</string>
+    <string name="evaluacion">EVALUACION</string>
+    <string name="direccion_aqui">DIRECCION AQUI</string>
+    <string name="donde_estoy">DONDE ESTOY</string>
+    <string name="contactame">CONTACTAME</string>
+    <string name="detalle_aviso_aqui">DETALLE AVISO AQUI</string>
+    <string name="email_here">EMAIL HERE</string>
+    <string name="phone_call">Phone call</string>
+    <string name="evaluame">EVALUAME</string>
+    <string name="share_ad">Share Ad</string>
 </resources>

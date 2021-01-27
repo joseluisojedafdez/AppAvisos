@@ -8,21 +8,22 @@ import com.i4bchile.avisos.model.Ad
 import com.i4bchile.avisos.model.Repository
 import kotlinx.coroutines.launch
 
-class AvisosVM: ViewModel() {
+class AvisosVM : ViewModel() {
+
+    val repository = Repository()
+    val listCategory = repository.listCategories
+
+    init {
+        viewModelScope.launch { repository.getDocuments() }
+    }
+
     fun listAds(value: String): LiveData<List<Ad>> {
         return repository.listAds(value)
-
     }
 
-    val repository= Repository()
-    val listCategory=repository.listCategories
-
-   init{
-
-        viewModelScope.launch{repository.getDocuments()}
-
+    fun getDetail(value: String): LiveData<Ad> {
+        return repository.getDetail(value)
     }
-
 
 
 }

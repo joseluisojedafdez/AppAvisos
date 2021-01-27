@@ -14,16 +14,14 @@ class Repository {
     val listCategories = adsDatabase.adsDao().getCategories()
 
 
-
     var db = FirebaseFirestore.getInstance()
     var TAG = "Firebase"
     val listAdsFirebase = mutableListOf<Ad>()
 
 
-
     suspend fun getDocuments() {
         Log.d(TAG, "getDocuments: ")
-        db.collection("Avisos").get().await().documents.forEach{
+        db.collection("Avisos").get().await().documents.forEach {
             val ad = getAd(it)
             listAdsFirebase.add(ad)
         }
@@ -61,6 +59,12 @@ class Repository {
     fun listAds(value: String): LiveData<List<Ad>> {
 
         return adsDatabase.adsDao().getAdsbyCategory(value)
+
+    }
+
+    fun getDetail(value: String): LiveData<Ad> {
+
+        return adsDatabase.adsDao().getAd(value)
 
     }
 

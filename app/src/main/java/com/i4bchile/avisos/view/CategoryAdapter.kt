@@ -6,18 +6,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.i4bchile.avisos.databinding.ItemListCategoryBinding
 
-class CategoryAdapter (val listener:OnItemClickListener): RecyclerView.Adapter<CategoryVH>() {
+class CategoryAdapter(val listener: OnItemClickListener) : RecyclerView.Adapter<CategoryVH>() {
 
-    val categoryList=mutableListOf<String>()
+    val categoryList = mutableListOf<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryVH {
-        val binding=ItemListCategoryBinding.inflate(LayoutInflater.from(parent.context))
+        val binding = ItemListCategoryBinding.inflate(LayoutInflater.from(parent.context))
         return CategoryVH(binding)
     }
 
     override fun onBindViewHolder(holder: CategoryVH, position: Int) {
-        val category=categoryList[position]
-        holder.itemView.setOnClickListener{listener.onClick(category)}
+        val category = categoryList[position]
+        holder.itemView.setOnClickListener { listener.onClick(category) }
         holder.bind(category)
     }
 
@@ -34,12 +34,12 @@ class CategoryAdapter (val listener:OnItemClickListener): RecyclerView.Adapter<C
     }
 }
 
-class CategoryVH (val binding:ItemListCategoryBinding): RecyclerView.ViewHolder(binding.root) {
+class CategoryVH(val binding: ItemListCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
     fun bind(category: String) {
         Log.d("TAG", "bind: Category:$category")
-        binding.tvCategoria.text=category
+        binding.tvCategoria.text = category
 
     }
 

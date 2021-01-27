@@ -12,9 +12,9 @@ import com.i4bchile.avisos.R
 import com.i4bchile.avisos.databinding.FragmentCategoryBinding
 import com.i4bchile.avisos.viewmodel.AvisosVM
 
-class CategoryFragment: Fragment(), OnItemClickListener {
-    private lateinit var binding:FragmentCategoryBinding
-    val adapter=CategoryAdapter(this)
+class CategoryFragment : Fragment(), OnItemClickListener {
+    private lateinit var binding: FragmentCategoryBinding
+    val adapter = CategoryAdapter(this)
     val viewModel: AvisosVM by viewModels()
 
     override fun onCreateView(
@@ -22,9 +22,9 @@ class CategoryFragment: Fragment(), OnItemClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding= FragmentCategoryBinding.inflate(layoutInflater)
-        binding.rvCategories.adapter=adapter
-        binding.rvCategories.layoutManager= GridLayoutManager(this.context,1)
+        binding = FragmentCategoryBinding.inflate(layoutInflater)
+        binding.rvCategories.adapter = adapter
+        binding.rvCategories.layoutManager = GridLayoutManager(this.context, 1)
         viewModel.listCategory.observe(viewLifecycleOwner, {
             Log.d("TAG", "onCreateView: listacategorias con: ${it.size}")
             adapter.updateCategories(it)
@@ -36,13 +36,11 @@ class CategoryFragment: Fragment(), OnItemClickListener {
     }
 
     override fun onClick(value: String) {
-        activity?.supportFragmentManager?.
-        beginTransaction()?.
-        replace(R.id.rv_fragment_container,FragmentListAds(value))?.
-        addToBackStack("volver")?.
-        commit()
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.rv_fragment_container, FragmentListAds(value))?.addToBackStack("volver")
+            ?.commit()
 
-            }
+    }
 
 
 }

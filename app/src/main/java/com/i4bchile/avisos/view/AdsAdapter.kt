@@ -5,21 +5,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.i4bchile.avisos.databinding.ItemListAdBinding
-import com.i4bchile.avisos.databinding.ItemListCategoryBinding
 import com.i4bchile.avisos.model.Ad
 
-class AdsAdapter (val listener:OnItemClickListener): RecyclerView.Adapter<AdVH>() {
+class AdsAdapter(val listener: OnItemClickListener) : RecyclerView.Adapter<AdVH>() {
 
-    val adList=mutableListOf<Ad>()
+    val adList = mutableListOf<Ad>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdVH {
-        val binding=ItemListAdBinding.inflate(LayoutInflater.from(parent.context))
+        val binding = ItemListAdBinding.inflate(LayoutInflater.from(parent.context))
         return AdVH(binding)
     }
 
     override fun onBindViewHolder(holder: AdVH, position: Int) {
-        val ad=adList[position]
-        holder.itemView.setOnClickListener{listener.onClick(ad.namePublisher)}
+        val ad = adList[position]
+        holder.itemView.setOnClickListener { listener.onClick(ad.namePublisher) }
         holder.bind(ad)
     }
 
@@ -36,11 +35,11 @@ class AdsAdapter (val listener:OnItemClickListener): RecyclerView.Adapter<AdVH>(
     }
 }
 
-class AdVH (val binding:ItemListAdBinding): RecyclerView.ViewHolder(binding.root) {
+class AdVH(val binding: ItemListAdBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(ad: Ad) {
-        binding.tvPublisher.text=ad.namePublisher
-        binding.tvPyme.text=ad.pyme
+        binding.tvPublisher.text = ad.namePublisher
+        binding.tvPyme.text = ad.pyme
 
     }
 
