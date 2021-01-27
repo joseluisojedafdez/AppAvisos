@@ -22,9 +22,17 @@ interface AdsDao {
     @Query("SELECT * FROM ad WHERE category=:pCategory AND active=1")
     fun getAdsbyCategory(pCategory: String): LiveData<List<Ad>>
 
+    @Insert(onConflict=OnConflictStrategy.REPLACE)
+    suspend fun insertEvals(lista:List<Evaluation>)
+
+    @Query("SELECT namePublisher, COUNT(userName) AS evaluations, SUM(rating) AS sumaRating FROM eval WHERE namePublisher=:publisher GROUP BY namePublisher ")
+    fun getRatings(publisher: String):LiveData<Ratings>
+
+
+
 }
 
-@Database(entities = [Ad::class], version = 1)
+@Database(entities = [Ad::class, Evaluation::class], version = 1)
 abstract class AddDatabase : RoomDatabase() {
     abstract fun adsDao(): AdsDao
 

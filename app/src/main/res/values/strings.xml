@@ -13,7 +13,7 @@
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
-    <string name="hello_world">Hello Square World!</string>
+    <string name="gracias_por_evaluarnos">GRACIAS POR EVALUARNOS</string>
     <string name="bienvenido">BIENVENIDO</string>
     <string name="nombre_usuario_aqui">Nombre Usuario Aqui</string>
     <string name="para_poder_ver_el_detalle_debes_identificarte">PARA PODER VER EL DETALLE, DEBES IDENTIFICARTE</string>
@@ -36,4 +36,12 @@
     <string name="phone_call">Phone call</string>
     <string name="evaluame">EVALUAME</string>
     <string name="share_ad">Share Ad</string>
+    <string name="comentarios">COMENTARIOS</string>
+    <string name="evalua_nuestros_servicios_1_5_y_comenta">EVALUA NUESTROS SERVICIOS (1-5) Y COMENTA</string>
+    <string name="email_dominio_com">email@dominio.com</string>
+    <string name="indica_tu_e_mail">Indica tu e-mail</string>
+    <string name="enviar">ENVIAR</string>
+    <string name="mostrar_resultado_aqui">MOSTRAR RESULTADO AQUI</string>
+    <string name="excelente_servicio">Excelente servicio!!!</string>
+    <string name="nombre_del_que_publica_el_aviso_aqui">NOMBRE DEL QUE PUBLICA EL AVISO AQUI</string>
 </resources>

@@ -23,7 +23,7 @@ data class Detail(
     val address: String,
     val city: String
 )
-
+@Entity(tableName="eval",primaryKeys=["namePublisher","userName"])
 data class Evaluation(
     val namePublisher: String,
     val userName: String,
@@ -31,8 +31,8 @@ data class Evaluation(
     val comment: String
 )
 
-data class User(
-    val userName: String,
-    val email: String,
-    val cellPhone: String
+data class Ratings(val namePublisher:String,
+                  val evaluations:Int,
+                  val sumaRating:Int,
+
 )

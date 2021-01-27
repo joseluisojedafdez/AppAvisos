@@ -17,6 +17,7 @@ class Repository {
     var db = FirebaseFirestore.getInstance()
     var TAG = "Firebase"
     val listAdsFirebase = mutableListOf<Ad>()
+    val listEvalsFirebase=mutableListOf<Evaluation>()
 
 
     suspend fun getDocuments() {
@@ -26,12 +27,34 @@ class Repository {
             listAdsFirebase.add(ad)
         }
         insertAds(listAdsFirebase)
+        db.collection("Evaluations").get().await().documents.forEach{
+            if (it!=null){
+            val eval=getEval(it)
+            listEvalsFirebase.add(eval)}
+        }
+        insertEvals(listEvalsFirebase)
+    }
+
+    private fun getEval(document: DocumentSnapshot): Evaluation {
+        val namePublisher=document.getString("namePublisher")!!
+        val userName=document.getString("userName")!!
+        val evaluation= document.getLong("rating")!!
+        val comment=document.getString("comment")!!
+
+        return Evaluation(namePublisher,userName,evaluation.toInt(),comment)
+
+
     }
 
 
     private suspend fun insertAds(listAdsFirebase: MutableList<Ad>) {
         Log.d(TAG, "insertAds: añadiendo ${listAdsFirebase.size} documentos")
         adsDatabase.adsDao().insertAds(listAdsFirebase)
+
+    }
+    private suspend fun insertEvals(listEvalsFirebase:MutableList<Evaluation>){
+
+        adsDatabase.adsDao().insertEvals(listEvalsFirebase)
 
     }
 
@@ -68,5 +91,22 @@ class Repository {
 
     }
 
+    fun addEval(eval: Evaluation) {
+
+        val evaluations=db.collection("Evaluations")
+        val data = hashMapOf(
+            "namePublisher" to eval.namePublisher,
+            "userName" to eval.userName,
+            "rating" to eval.rating,
+            "comment" to eval.comment
+        )
+        evaluations.document().set(data)
+
+    }
+
+    fun getRatings(publisher:String):LiveData<Ratings>{
+        Log.d("TAG", "getRatings: ${adsDatabase.adsDao().getRatings(publisher).value}")
+        return adsDatabase.adsDao().getRatings(publisher)
+    }
 
 }

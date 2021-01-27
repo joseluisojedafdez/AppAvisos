@@ -3,11 +3,13 @@ package com.i4bchile.avisos.view
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.i4bchile.avisos.R
 import com.i4bchile.avisos.databinding.FragmentDetailBinding
 import com.i4bchile.avisos.viewmodel.AvisosVM
 
@@ -34,6 +36,15 @@ class DetailFragment(val value: String) : Fragment() {
 
         })
 
+        viewModel.getRatings(value).observe(viewLifecycleOwner, {
+            Log.d("TAG", "onCreateView: $value")
+            Log.d("TAG", "onCreateView: $it")
+            if (it != null) {
+                binding.ratingBar.rating = (it.sumaRating / it.evaluations).toFloat()
+                binding.tvEvalNumber.text = it.evaluations.toString()
+            }
+        })
+
         binding.btShareAd.setOnClickListener {
             val shareIntent = Intent()
             shareIntent.action=Intent.ACTION_SEND
@@ -53,13 +64,19 @@ class DetailFragment(val value: String) : Fragment() {
         }
 
 
-        binding.btEvaluame.setOnClickListener {
-            //TODO: open fragment evaluate add
-        }
+        binding.btEvaluate.setOnClickListener {
+                        openEvalFragment()
+             }
 
 
         return binding.root
     }
 
+    private fun openEvalFragment(){
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.rv_fragment_container, FragmentEvaluation(value))?.addToBackStack("volver")
+            ?.commit()
+
+    }
 
 }
