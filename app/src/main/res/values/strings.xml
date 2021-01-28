@@ -46,4 +46,5 @@
     <string name="nombre_del_que_publica_el_aviso_aqui">NOMBRE DEL QUE PUBLICA EL AVISO AQUI</string>
     <string name="foto_usuario">foto usuario</string>
     <string name="user_name_here">USER NAME HERE</string>
+    <string name="ya_evaluaste_este_servicio">YA EVALUASTE ESTE SERVICIO</string>
 </resources>

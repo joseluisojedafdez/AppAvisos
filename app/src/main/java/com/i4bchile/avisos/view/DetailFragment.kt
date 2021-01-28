@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.i4bchile.avisos.R
 import com.i4bchile.avisos.databinding.FragmentDetailBinding
 import com.i4bchile.avisos.model.Ad
@@ -17,6 +18,8 @@ import com.i4bchile.avisos.viewmodel.AvisosVM
 class DetailFragment(val value: String) : Fragment() {
     private lateinit var binding: FragmentDetailBinding
     private val viewModel: AvisosVM by viewModels()
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,10 +33,25 @@ class DetailFragment(val value: String) : Fragment() {
 
         })
 
+        viewModel.getEvals(value).observe(viewLifecycleOwner,{ eval ->
+            val acct = GoogleSignIn.getLastSignedInAccount(activity)
+            val evaluation=eval.filter{ it.userName == acct?.displayName }
+            if (evaluation.isNotEmpty()){
+                binding.btEvaluate.visibility=View.INVISIBLE
+                binding.tvAlreadyRated.visibility=View.VISIBLE
+            }
+            else {
+                binding.btEvaluate.visibility=View.VISIBLE
+                binding.tvAlreadyRated.visibility=View.INVISIBLE
+            }
+        })
+
         viewModel.getRatings(value).observe(viewLifecycleOwner, {
             Log.d("TAG", "onCreateView: $value")
             Log.d("TAG", "onCreateView: $it")
-            if (it !=null) {
+
+            if (it != null) {
+
                 binding.ratingBar.rating = (it.sumaRating / it.evaluations).toFloat()
                 binding.tvEvalNumber.text = it.evaluations.toString()
             }
@@ -66,6 +84,8 @@ class DetailFragment(val value: String) : Fragment() {
         return binding.root
     }
 
+
+
     private fun updateUI(it: Ad?) {
 
         binding.tvNamePublisherDetail.text = it?.namePublisher
@@ -86,4 +106,20 @@ class DetailFragment(val value: String) : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.getEvals(value).observe(viewLifecycleOwner,{ eval ->
+            val acct = GoogleSignIn.getLastSignedInAccount(activity)
+            val evaluation=eval.filter{ it.userName == acct?.displayName }
+            if (evaluation.isNotEmpty()){
+                binding.btEvaluate.visibility=View.INVISIBLE
+                binding.tvAlreadyRated.visibility=View.VISIBLE
+            }
+            else {
+                binding.btEvaluate.visibility=View.VISIBLE
+                binding.tvAlreadyRated.visibility=View.INVISIBLE
+            }
+        })
+    }
 }

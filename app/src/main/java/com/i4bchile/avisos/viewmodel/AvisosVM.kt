@@ -39,4 +39,7 @@ class AvisosVM : ViewModel() {
         return repository.getRatings(pNamePublisher)
 
     }
+    fun getEvals(pNamePublisher: String):LiveData<List<Evaluation>>{
+        return repository.getEvals(pNamePublisher)
+    }
 }

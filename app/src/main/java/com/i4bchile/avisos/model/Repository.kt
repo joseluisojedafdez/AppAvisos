@@ -110,6 +110,10 @@ class Repository {
         return adsDatabase.adsDao().getRatings(publisher)
     }
 
+    fun getEvals(publisher:String):LiveData<List<Evaluation>>{
+        return adsDatabase.adsDao().getEvals(publisher)
+    }
+
   /*  fun addData() {
 
         val avisos=db.collection("Avisos")

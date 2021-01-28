@@ -28,6 +28,9 @@ interface AdsDao {
     @Query("SELECT namePublisher, COUNT(userName) AS evaluations, SUM(rating) AS sumaRating FROM eval WHERE namePublisher=:publisher GROUP BY namePublisher ")
     fun getRatings(publisher: String):LiveData<Ratings>
 
+    @Query("SELECT * FROM eval where namePublisher=:publisher")
+    fun getEvals(publisher:String):LiveData<List<Evaluation>>
+
 
 
 }

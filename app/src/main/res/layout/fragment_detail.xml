@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bt_evaluame"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -179,7 +180,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:clickable="false"
         android:numStars="5"
+        android:stepSize="0.1"
+        android:isIndicator="true"
         app:layout_constraintBottom_toBottomOf="@+id/tv_evaluacion"
         app:layout_constraintStart_toEndOf="@+id/tv_evaluacion"
         app:layout_constraintTop_toTopOf="@+id/tv_evaluacion" />
@@ -188,7 +192,7 @@
         android:id="@+id/bt_evaluate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/evaluame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -205,5 +209,15 @@
         app:srcCompat="@android:drawable/ic_menu_share"
         android:focusable="true"
         android:contentDescription="@string/share_ad" />
+
+    <TextView
+        android:id="@+id/tv_already_rated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/ya_evaluaste_este_servicio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_evaluate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
