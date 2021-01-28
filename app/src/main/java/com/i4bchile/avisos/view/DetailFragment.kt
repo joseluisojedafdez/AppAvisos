@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.i4bchile.avisos.R
 import com.i4bchile.avisos.databinding.FragmentDetailBinding
+import com.i4bchile.avisos.model.Ad
 import com.i4bchile.avisos.viewmodel.AvisosVM
 
 class DetailFragment(val value: String) : Fragment() {
@@ -25,14 +26,7 @@ class DetailFragment(val value: String) : Fragment() {
         binding = FragmentDetailBinding.inflate(layoutInflater)
 
         viewModel.getDetail(value).observe(viewLifecycleOwner, {
-            binding.tvNamePublisherDetail.text = it.namePublisher
-            binding.tvPymeDetail.text = it.pyme
-            binding.tvTitleDetail.text = it.details.title
-            binding.tvDetalleAviso.text = it.details.description
-            binding.tvTelefono.text = it.details.cellPhone
-            binding.tvEmail.text = it.details.email
-            binding.tvDireccion.text = it.details.address
-            binding.tvCity.text = it.details.city
+           updateUI(it)
 
         })
 
@@ -70,6 +64,19 @@ class DetailFragment(val value: String) : Fragment() {
 
 
         return binding.root
+    }
+
+    private fun updateUI(it: Ad?) {
+
+        binding.tvNamePublisherDetail.text = it?.namePublisher
+        binding.tvPymeDetail.text = it?.pyme
+        binding.tvTitleDetail.text = it?.details?.title
+        binding.tvDetalleAviso.text = it?.details?.description
+        binding.tvTelefono.text = it?.details?.cellPhone
+        binding.tvEmail.text = it?.details?.email
+        binding.tvDireccion.text = it?.details?.address
+        binding.tvCity.text = it?.details?.city
+
     }
 
     private fun openEvalFragment(){
