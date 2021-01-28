@@ -146,7 +146,7 @@ class FragmentEvaluation(val value: String): Fragment() {
 
         }
         else {
-            Log.d("TAG", "updateUI con account: ${account?.displayName}")
+            Log.d("TAG", "updateUI con account: ${account.displayName}")
             binding.signInButton.visibility=View.INVISIBLE
             binding.ivUserImage.visibility=View.VISIBLE
             binding.ivUserImage.load(account.photoUrl)

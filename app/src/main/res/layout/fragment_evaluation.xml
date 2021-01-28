@@ -27,12 +27,14 @@
 
     <RatingBar
         android:id="@+id/rb_evaluation_single"
+        android:theme="@style/RatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:numStars="5"
         android:stepSize="1"
         android:rating="5"
+        android:elevation="@dimen/material_emphasis_high_type"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.573"
         app:layout_constraintStart_toStartOf="parent"
