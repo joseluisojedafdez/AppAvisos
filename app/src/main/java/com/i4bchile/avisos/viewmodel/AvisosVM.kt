@@ -38,8 +38,5 @@ class AvisosVM : ViewModel() {
 
         return repository.getRatings(pNamePublisher)
 
-        }
-
-
     }
-
+}

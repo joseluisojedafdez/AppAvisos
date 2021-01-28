@@ -106,6 +106,7 @@ class Repository {
 
     fun getRatings(publisher:String):LiveData<Ratings>{
         Log.d("TAG", "getRatings: ${adsDatabase.adsDao().getRatings(publisher).value}")
+
         return adsDatabase.adsDao().getRatings(publisher)
     }
 

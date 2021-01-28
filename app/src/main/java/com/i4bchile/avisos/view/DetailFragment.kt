@@ -39,7 +39,7 @@ class DetailFragment(val value: String) : Fragment() {
         viewModel.getRatings(value).observe(viewLifecycleOwner, {
             Log.d("TAG", "onCreateView: $value")
             Log.d("TAG", "onCreateView: $it")
-            if (it != null) {
+            if (it !=null) {
                 binding.ratingBar.rating = (it.sumaRating / it.evaluations).toFloat()
                 binding.tvEvalNumber.text = it.evaluations.toString()
             }
