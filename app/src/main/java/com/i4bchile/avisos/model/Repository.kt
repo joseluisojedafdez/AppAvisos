@@ -63,7 +63,7 @@ class Repository {
         val pyme = document.getString("pyme")!!
         val category = document.getString("category")!!
         val active = document.getBoolean("active")!!
-        val imageURL = document.getString("imageURL")!!
+        //val imageURL = document.getString("imageURL")!!
 
         val title = document.getString("title")!!
         val description = document.getString("description")!!
@@ -73,7 +73,7 @@ class Repository {
         val address = document.getString("address")!!
         val city = document.getString("city")!!
         val details = Detail(title, description, email, cellPhone, webSite, address, city)
-        val ad = Ad(namePublisher, pyme, category, details, active, imageURL)
+        val ad = Ad(namePublisher, pyme, category, details, active, "imageURL")
 
         return ad
 
@@ -109,7 +109,7 @@ class Repository {
         return adsDatabase.adsDao().getRatings(publisher)
     }
 
-    fun addData() {
+  /*  fun addData() {
 
         val avisos=db.collection("Avisos")
 
@@ -119,7 +119,7 @@ class Repository {
             "pyme" to "Panaderia Maggy",
             "category" to "Panaderia/Pasteleria",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Servicio de Panaderia y Pasteleria"	,
             "description" to "",
             "email" to "",
@@ -134,7 +134,7 @@ class Repository {
             "pyme" to "Pie de Limon",
             "category" to "Panaderia/Pasteleria",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Pie de Limon a Pedido",
             "description" to "",
             "email" to "",
@@ -152,7 +152,7 @@ class Repository {
             "pyme" to "Sanitizantes",
             "category" to "Comestibles e Insumos",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Venta de Sanitizantes",
             "description" to "",
             "email" to "",
@@ -167,7 +167,7 @@ class Repository {
             "pyme" to "Muebleria",
             "category" to "Muebles",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Confección de Muebles de Madera",
             "description" to "",
             "email" to "",
@@ -182,7 +182,7 @@ class Repository {
             "pyme" to "Maestro y Mecï¿½nico",
             "category" to "Maestros",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Servicio de Mecï¿½nica	 soldador e instalacion de ceramicos",
             "description" to "",
             "email" to "",
@@ -198,7 +198,7 @@ class Repository {
             "pyme" to "La Canasta Market",
             "category" to "Comestibles e Insumos",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Minimarket",
             "description" to "Servicio de abarrotes	 bebidas	 snack	 etc.",
             "email" to "",
@@ -213,7 +213,7 @@ class Repository {
             "pyme" to "Clases de Quimica",
             "category" to "Clases Particulares",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Clases Online Quimica",
             "description" to "Desde 7 Basico a 4 Medio",
             "email" to "",
@@ -229,7 +229,7 @@ class Repository {
             "pyme" to "Desinfectantes",
             "category" to "Comestibles e Insumos",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Venta de Amonio Cuaternario",
             "description" to "",
             "email" to "",
@@ -245,7 +245,7 @@ class Repository {
             "pyme" to "Kinesiologiaa",
             "category" to "Bienestar/Forma física",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Kinesiologa",
             "description" to "Rehabilitacion de lesiones y entrenamiento online",
             "email" to "",
@@ -261,7 +261,7 @@ class Repository {
             "pyme" to "Construccion",
             "category" to "Maestros",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Construccion y Muebleria",
             "description" to "",
             "email" to "",
@@ -276,7 +276,7 @@ class Repository {
             "pyme" to "Tortas Caseras",
             "category" to "Panaderia/Pasteleria",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Tortas caserras a pedido",
             "description" to "",
             "email" to "",
@@ -292,7 +292,7 @@ class Repository {
             "pyme" to "Delicias Chef",
             "category" to "Panaderia/Pasteleria",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Pastas y Reposteria",
             "description" to "Delivery en el centro de Viña del Mar",
             "email" to "",
@@ -307,7 +307,7 @@ class Repository {
             "pyme" to "Wood Working Chile",
             "category" to "Muebles",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Muebleria y Remodelacion",
             "description" to "",
             "email" to "",
@@ -323,7 +323,7 @@ class Repository {
             "pyme" to "BNAT",
             "category" to "Comestibles e Insumos",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Superalimentos	 suplementos y Frutos Secos",
             "description" to "Servicio a domicilio",
             "email" to "",
@@ -340,7 +340,7 @@ class Repository {
             "pyme" to "Fletes Beima",
             "category" to "Fletes y Mudanzas",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Servicio de Fletes y Mudanza",
             "description" to "",
             "email" to "",
@@ -355,7 +355,7 @@ class Repository {
             "pyme" to "Appetizers	 Tablas & Dis",
             "category" to "Comestibles e Insumos",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Tablas de picoteo dulces	 saladas y Mixtas",
             "description" to "Delivery",
             "email" to "",
@@ -370,7 +370,7 @@ class Repository {
             "pyme" to "Giraffa",
             "category" to "Textil",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Tejidos de Lana",
             "description" to "Banderines cuellos bufandas gorros de lana tejidos a mano",
             "email" to "",
@@ -387,7 +387,7 @@ class Repository {
             "pyme" to "Productos Pestañitas",
             "category" to "Textil",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Mascarillas reutilizables",
             "description" to "Con 3 capas de tela",
             "email" to "",
@@ -402,7 +402,7 @@ class Repository {
             "pyme" to "La Huerta de Concón",
             "category" to "Comestibles e Insumos",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Frutas	 verduras	 huevos	 frutos secos y mas",
             "description" to "Delivery en Viï¿½a	 Valpo y Concon",
             "email" to "",
@@ -417,7 +417,7 @@ class Repository {
             "pyme" to "GP Music",
             "category" to "Clases Particulares",
             "active" to true,
-            "ImageURL" to "",
+            "imageURL" to "",
             "title" to "Clases personalizadas y talleres de musica",
             "description" to "",
             "email" to "germanpichinao@gmail.com",
@@ -428,5 +428,5 @@ class Repository {
         avisos.document().set(data20)
 
     }
-
+*/
 }

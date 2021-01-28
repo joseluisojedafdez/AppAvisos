@@ -18,6 +18,7 @@ class AvisosVM : ViewModel() {
     val listCategory = repository.listCategories
 
     init {
+
         viewModelScope.launch { repository.getDocuments() }
     }
 
